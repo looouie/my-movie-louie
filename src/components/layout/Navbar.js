@@ -14,11 +14,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const showSidebar = useSelector((state) => state.ui.sidebarIsVisible);
-  // useState method
-  // const [sidebar, setSidebar] = useState(false);
-  // const toggleSideBar = () => setSidebar(!sidebar);
 
-  //redux store method
+  //redux store
   const toggle = () => {
     dispatch(uiActions.toggleSidebar());
   };

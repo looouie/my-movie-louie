@@ -4,8 +4,13 @@
 }
 
 h1 {
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   font-size: 1.8rem;
+}
+
+h2,
+p {
+  padding: 1rem 1rem;
 }
 
 @media (min-width: 40rem) {
