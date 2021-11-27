@@ -13,14 +13,20 @@ const MovieItem = (props) => {
 
   const { id, favourited } = props;
 
+  const payload = {
+    id: props.id,
+    title: props.title,
+    posterPath: props.posterPath,
+  };
+
   useEffect(() => {
     if (favourited) {
       setIsFavourite(true);
     }
   }, [favourited]);
 
-  const addToFavouriteHandler = (id) => {
-    dispatch(favouriteActions.addToFavouriteList(id));
+  const addToFavouriteHandler = (payload) => {
+    dispatch(favouriteActions.addToFavouriteList(payload));
   };
   const removeFromFavouriteHandler = (id) => {
     dispatch(favouriteActions.removeFavouriteFromList(id));
@@ -31,7 +37,7 @@ const MovieItem = (props) => {
       removeFromFavouriteHandler(id);
       setIsFavourite(false);
     } else {
-      addToFavouriteHandler(id);
+      addToFavouriteHandler(payload);
       setIsFavourite(true);
     }
   };
