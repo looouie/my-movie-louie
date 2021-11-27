@@ -1,22 +1,14 @@
 import MovieItem from "./MovieItem";
-import classes from "./MovieList.module.css";
-import { useEffect } from "react";
+// import classes from "./MovieList.module.css";
 import { useSelector } from "react-redux";
-// import { favouriteActions } from "../../store/favourite-slice";
+import GridContainer from "../layout/Grid/GridContainer";
 
 const MovieList = (props) => {
   const movies = props.results;
   const list = useSelector((state) => state.favourite.list);
-  // const extractedFavourite = JSON.parse(localStorage.getItem("favourite"));
-
-  // save the updated list to local storage when LIST changed
-  // useEffect(() => {
-  //   localStorage.setItem("favourite", JSON.stringify(list));
-  //   console.log(list);
-  // }, [list]);
 
   return (
-    <div className={classes.list}>
+    <GridContainer>
       {movies.map((movie) => {
         const found = list.find((x) => x.id === movie.id);
         return (
@@ -29,7 +21,7 @@ const MovieList = (props) => {
           />
         );
       })}
-    </div>
+    </GridContainer>
   );
 };
 

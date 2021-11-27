@@ -1,0 +1,14 @@
+.list {
+  /* width: 80vw; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.55rem;
+  align-items: center;
+}
+
+@media (min-width: 40rem) {
+  .list {
+    margin: 0 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
