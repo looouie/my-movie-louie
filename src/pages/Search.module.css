@@ -1,0 +1,52 @@
+.form {
+  margin: 0;
+  max-width: 100%;
+  line-height: 1.5em;
+}
+.form label {
+  padding: 10px 10px; /* same as Layout h1 tag*/
+}
+.form input {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 50%;
+  padding: 10px 10px;
+}
+
+.form .submit {
+  border-radius: 5px;
+  width: 10%;
+}
+
+.form .submit:hover,
+.form .submit:active {
+  background-color: #beeedb;
+}
+
+.noResult {
+  font: inherit;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: crimson;
+  padding: 10px; /* same as Layout h1 tag*/
+}
+
+.result {
+  font: inherit;
+  list-style: none;
+}
+
+.result li {
+  margin: 1em 0;
+  font-size: 1.2em;
+}
+
+.result li a {
+  text-decoration: none;
+  color: rgb(44, 43, 43);
+}
+
+.result li a:hover {
+  color: #2b916a;
+}

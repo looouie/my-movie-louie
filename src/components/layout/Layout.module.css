@@ -1,0 +1,20 @@
+.container {
+  margin: 1rem;
+  text-align: center;
+}
+
+h1 {
+  padding: 1rem 0;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 40rem) {
+  .container {
+    margin: 1.5em 5em;
+    text-align: left;
+  }
+
+  h1 {
+    padding: 2rem 1rem;
+  }
+}
