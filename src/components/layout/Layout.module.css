@@ -4,7 +4,7 @@
 }
 
 h1 {
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   font-size: 1.8rem;
 }
 
@@ -15,7 +15,7 @@ p {
 
 @media (min-width: 40rem) {
   .container {
-    margin: 1.5em 5em;
+    margin: 1rem 5rem;
     text-align: left;
   }
 

@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { favouriteActions } from "../../store/favourite-slice";
 import * as AiIcons from "react-icons/ai";
 
+const imagePrefix = "https://image.tmdb.org/t/p/original";
+
 const MovieItem = (props) => {
   const dispatch = useDispatch();
 
@@ -52,7 +54,8 @@ const MovieItem = (props) => {
         </div>
         <img
           className={classes.poster}
-          src={`https://image.tmdb.org/t/p/original${props.posterPath}`}
+          // src={`https://image.tmdb.org/t/p/original${props.posterPath}`}
+          src={`${imagePrefix}${props.posterPath}`}
           alt="poster"
         />
       </div>
