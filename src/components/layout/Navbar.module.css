@@ -5,7 +5,15 @@
   align-items: center;
   vertical-align: middle;
   height: 3rem;
+  z-index: 1;
+  top: 0;
+  opacity: 0.95;
 }
+
+.sticky {
+  position: sticky;
+}
+
 .menu_icon,
 .home_icon,
 .header {

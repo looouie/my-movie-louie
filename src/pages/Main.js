@@ -7,7 +7,6 @@ import MovieList from "../components/movies/MovieList";
 
 const Main = () => {
   const { sendRequest, data, error, status } = useHttp(getAllPopular);
-  const total = useSelector((state) => state.favourite.totalMovies);
 
   useEffect(() => {
     sendRequest();
@@ -16,7 +15,6 @@ const Main = () => {
   return (
     <Fragment>
       <h1>Popular Movie</h1>
-      <h2>Favourite: {total}</h2>
       {!error && status === "completed" ? (
         <MovieList results={data.results} />
       ) : (

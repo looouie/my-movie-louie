@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <IconContext.Provider value={{ color: "#463f3a" }}>
-      <div className={classes.navbar}>
+      <div className={`${classes.navbar} ${classes.sticky}`}>
         <Link to="#" className={classes.menu_icon}>
           <FaIcons.FaBars onClick={toggle} />
         </Link>
