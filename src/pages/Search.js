@@ -5,6 +5,9 @@ import useHttp from "../hooks/useHttp";
 import { searchByKeyword } from "../lib/api";
 
 import classes from "./Search.module.css";
+import FlexContainer from "../components/layout/Flex/FlexContainer";
+
+const imagePrefix = "https://image.tmdb.org/t/p/original";
 
 const Search = () => {
   const { sendRequest, data, status, error } = useHttp(searchByKeyword);
@@ -46,19 +49,21 @@ const Search = () => {
 
       {searchResult && (
         <div>
-          <h1>Result</h1>
-          <ul className={classes.result}>
-            {data?.results.map((result) => {
-              return (
-                <li key={result.id}>
-                  <Link key={result.id} to={`/movie/${result.id}`}>
-                    {" "}
-                    {result.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <h1>Result Total: {data.total_results}</h1>
+          <FlexContainer>
+            <ul className={classes.result}>
+              {data?.results.map((result) => {
+                return (
+                  <li key={result.id}>
+                    <Link key={result.id} to={`/movie/${result.id}`}>
+                      {" "}
+                      {result.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </FlexContainer>
         </div>
       )}
       {noResult && <p className={classes.noResult}>No search result</p>}

@@ -21,6 +21,10 @@ const favouriteSlice = createSlice({
       state.list = state.list.filter((item) => item.id !== itemTobeRemoved);
       state.totalMovies--;
     },
+    removeAllFavourite(state) {
+      state.list = [];
+      state.totalMovies = 0;
+    },
   },
 });
 

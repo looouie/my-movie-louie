@@ -1,4 +1,4 @@
-.list {
+.grid {
   /* width: 80vw; */
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -7,7 +7,7 @@
 }
 
 @media (min-width: 40rem) {
-  .list {
+  .grid {
     margin: 0 1rem;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

@@ -18,7 +18,7 @@ const Main = () => {
       {!error && status === "completed" ? (
         <MovieList results={data.results} />
       ) : (
-        "There is no popular movie yet"
+        <p>There is no popular movie yet</p>
       )}
     </Fragment>
   );

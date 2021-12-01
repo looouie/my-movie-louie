@@ -1,5 +1,5 @@
 import classes from "./Layout.module.css";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";

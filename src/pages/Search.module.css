@@ -16,7 +16,7 @@
 
 .form .submit {
   border-radius: 5px;
-  width: 10%;
+  width: 20%;
 }
 
 .form .submit:hover,
@@ -49,4 +49,12 @@
 
 .result li a:hover {
   color: #2b916a;
+}
+
+.poster {
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 3px;
+  position: relative;
 }

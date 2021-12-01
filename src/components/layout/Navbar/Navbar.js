@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+import { SidebarData } from "../SidebarData";
 import { IconContext } from "react-icons";
-import { uiActions } from "../../store/ui-slice";
+import { uiActions } from "../../../store/ui-slice";
 
 import * as FaIcons from "react-icons/fa";
 import * as GrIcons from "react-icons/gr";
