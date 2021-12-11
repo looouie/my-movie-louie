@@ -16,7 +16,6 @@ const Main = () => {
   return (
     <Fragment>
       <h1>Popular Movie</h1>
-      {/* <Loader /> */}
       {status === "pending" && <Loader />}
       {!error && status === "completed" && <MovieList results={data.results} />}
     </Fragment>

@@ -24,6 +24,12 @@
   background-color: #beeedb;
 }
 
+.noKeyword {
+  font-weight: 500;
+  color: crimson;
+  padding: 10px; /* same as Layout h1 tag*/
+}
+
 .noResult {
   font: inherit;
   font-weight: 700;

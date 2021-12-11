@@ -57,7 +57,7 @@
 
 .nav_menu.active {
   left: 0;
-  transition: 350ms;
+  transition: 350ms ease-in-out;
 }
 
 .nav_text {
