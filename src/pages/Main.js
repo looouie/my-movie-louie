@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import useHttp from "../hooks/useHttp";
 import { getAllPopular } from "../lib/api";
 
+import Loader from "../components/UI/Loader";
 import MovieList from "../components/movies/MovieList";
 
 const Main = () => {
@@ -15,11 +16,9 @@ const Main = () => {
   return (
     <Fragment>
       <h1>Popular Movie</h1>
-      {!error && status === "completed" ? (
-        <MovieList results={data.results} />
-      ) : (
-        <p>There is no popular movie yet</p>
-      )}
+      {/* <Loader /> */}
+      {status === "pending" && <Loader />}
+      {!error && status === "completed" && <MovieList results={data.results} />}
     </Fragment>
   );
 };
