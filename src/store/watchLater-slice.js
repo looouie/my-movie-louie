@@ -3,23 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const watchLaterSlice = createSlice({
   name: "watchLaterList",
   initialState: {
-    watchLater: [],
-    NumberOfWatchLater: 0,
+    list: [],
+    totalMovies: 0,
   },
   reducers: {
     addToWatchLaterList(state, action) {
       const newMovie = action.payload;
-      const movieExisted = state.watchLater.find(
-        (movie) => movie.id === newMovie.id
-      );
-      if (!movieExisted) {
-        return state.watchLater.push({
-          movieId: newMovie.id,
-          movieName: newMovie.name,
-        });
-      } else {
-        return state.watchLater;
-      }
+      state.list.push({
+        id: newMovie.id,
+        title: newMovie.title,
+        posterPath: newMovie.posterPath,
+      });
+      state.totalMovies++;
+    },
+    removeWatchLaterFromList(state, action) {
+      const itemTobeRemoved = action.payload;
+      state.list = state.list.filter((item) => item.id !== itemTobeRemoved);
+      state.totalMovies--;
+    },
+    removeAllWatchLater(state) {
+      state.list = [];
+      state.totalMovies = 0;
     },
   },
 });
+
+export const watchLaterActions = watchLaterSlice.actions;
+
+export default watchLaterSlice;
