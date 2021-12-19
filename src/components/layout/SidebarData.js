@@ -1,6 +1,6 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
-import * as GrIcons from "react-icons/gr";
+import * as BsIcons from "react-icons/bs";
 import * as AiIcons from "react-icons/ai";
 
 export const SidebarData = [
@@ -25,7 +25,7 @@ export const SidebarData = [
   {
     title: "Watch Later",
     path: "/watchlater",
-    icon: <GrIcons.GrSave />,
+    icon: <BsIcons.BsSave2 />,
     cName: "nav_text",
   },
 ];
