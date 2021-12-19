@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 
 import { favouriteActions } from "../../store/favourite-slice";
 import * as AiIcons from "react-icons/ai";
+import * as BsIcons from "react-icons/bs";
+import { watchLaterActions } from "../../store/watchLater-slice";
 
 const imagePrefix = "https://image.tmdb.org/t/p/original";
 
@@ -12,8 +14,9 @@ const MovieItem = (props) => {
   const dispatch = useDispatch();
 
   const [isFavourite, setIsFavourite] = useState(false);
+  const [isWatchList, setIsWatchList] = useState(false);
 
-  const { id, favourited } = props;
+  const { id, favourited, watchLater } = props;
 
   const payload = {
     id: props.id,
@@ -25,7 +28,11 @@ const MovieItem = (props) => {
     if (favourited) {
       setIsFavourite(true);
     }
-  }, [favourited]);
+
+    if (watchLater) {
+      setIsWatchList(true);
+    }
+  }, [favourited, watchLater]);
 
   const addToFavouriteHandler = (payload) => {
     dispatch(favouriteActions.addToFavouriteList(payload));
@@ -44,12 +51,32 @@ const MovieItem = (props) => {
     }
   };
 
+  const addToWatchLaterHandler = (payload) => {
+    dispatch(watchLaterActions.addToWatchLaterList(payload));
+  };
+  const removeFromWatchLaterHandler = (id) => {
+    dispatch(watchLaterActions.removeWatchLaterFromList(id));
+  };
+
+  const toggleWatchLater = () => {
+    if (isWatchList) {
+      removeFromWatchLaterHandler(id);
+      setIsWatchList(false);
+    } else {
+      addToWatchLaterHandler(payload);
+      setIsWatchList(true);
+    }
+  };
+
   return (
     <div className={classes.card}>
       <div>
-        <div className={classes.add_wishlist}>
-          <div className={classes.add_action} onClick={toggleFavorite}>
+        <div className={classes.add_to_list}>
+          <div className={classes.add_favourite} onClick={toggleFavorite}>
             {isFavourite ? <AiIcons.AiFillHeart /> : <AiIcons.AiOutlineHeart />}
+          </div>
+          <div className={classes.add_waterLater} onClick={toggleWatchLater}>
+            {isWatchList ? <BsIcons.BsSave2Fill /> : <BsIcons.BsSave2 />}
           </div>
         </div>
         <img
