@@ -1,15 +1,22 @@
-.add_favourite {
+.add_to_list {
   padding: 0 1rem;
   font-size: 2rem;
-  opacity: 0.9;
-  display: inline-block;
-  top: 0.2rem;
-  left: 0.5rem;
+  display: flex;
   z-index: 1;
-  color: #f72585;
 }
+
+.add_favourite {
+  color: rgb(221, 72, 72);
+  padding-right: 1.5rem;
+}
+
+.add_watchLater {
+  color: rgb(122, 235, 182);
+  padding-right: 1.5rem;
+}
+
 .backdrop {
-  width: 20rem;
+  width: 25rem;
   height: auto;
   padding: 1rem;
 }
@@ -23,6 +30,13 @@
 
 .description {
   text-align: justify;
+}
+
+@media (min-width: 30rem) {
+  .backdrop {
+    width: 30rem;
+    height: auto;
+  }
 }
 
 @media (min-width: 40rem) {

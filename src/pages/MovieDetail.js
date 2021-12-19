@@ -1,13 +1,15 @@
-import { useEffect, Fragment, useState, useCallback, useMemo } from "react";
+import { useEffect, Fragment, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { favouriteActions } from "../store/favourite-slice";
 import * as AiIcons from "react-icons/ai";
+import * as BsIcons from "react-icons/bs";
 
 import classes from "./MovieDetail.module.css";
 
 import { getMovieDetail } from "../lib/api";
 import useHttp from "../hooks/useHttp";
+import { watchLaterActions } from "../store/watchLater-slice";
 
 const MovieDetail = () => {
   const dispatch = useDispatch();
@@ -18,11 +20,17 @@ const MovieDetail = () => {
   let payload = {};
 
   const [isFavourite, setIsFavourite] = useState();
+  const [isWatchLater, setIsWatchLater] = useState();
 
-  const list = useSelector((state) => state.favourite.list);
+  const favouriteList = useSelector((state) => state.favourite.list);
+  const watchLaterList = useSelector((state) => state.watchLater.list);
+
   useEffect(() => {
-    if (list.find((item) => item.id === parseInt(movieId))) {
+    if (favouriteList.find((item) => item.id === parseInt(movieId))) {
       setIsFavourite(true);
+    }
+    if (watchLaterList.find((item) => item.id === parseInt(movieId))) {
+      setIsWatchLater(true);
     }
   }, [movieId]);
 
@@ -36,7 +44,7 @@ const MovieDetail = () => {
     payload = {
       id: data.id,
       title: data.title,
-      poster_path: data.poster_path,
+      posterPath: data.poster_path,
     };
   }
 
@@ -57,6 +65,23 @@ const MovieDetail = () => {
     }
   };
 
+  const toggleWatchLater = () => {
+    const addToWatchLaterHandler = (payload) => {
+      dispatch(watchLaterActions.addToWatchLaterList(payload));
+    };
+    const removeFromWatchLaterHandler = (id) => {
+      dispatch(watchLaterActions.removeWatchLaterFromList(id));
+    };
+
+    if (isWatchLater) {
+      removeFromWatchLaterHandler(movieId);
+      setIsWatchLater(false);
+    } else {
+      addToWatchLaterHandler(payload);
+      setIsWatchLater(true);
+    }
+  };
+
   return (
     <Fragment>
       <div>
@@ -69,8 +94,13 @@ const MovieDetail = () => {
             src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
           />,
         ]}
-        <div className={classes.add_favourite} onClick={toggleFavorite}>
-          {isFavourite ? <AiIcons.AiFillHeart /> : <AiIcons.AiOutlineHeart />}
+        <div className={classes.add_to_list}>
+          <div className={classes.add_favourite} onClick={toggleFavorite}>
+            {isFavourite ? <AiIcons.AiFillHeart /> : <AiIcons.AiOutlineHeart />}
+          </div>
+          <div className={classes.add_watchLater} onClick={toggleWatchLater}>
+            {isWatchLater ? <BsIcons.BsSave2Fill /> : <BsIcons.BsSave2 />}
+          </div>
         </div>
       </div>
       {isValid && [
