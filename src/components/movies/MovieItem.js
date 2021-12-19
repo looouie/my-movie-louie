@@ -8,7 +8,7 @@ import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import { watchLaterActions } from "../../store/watchLater-slice";
 
-const imagePrefix = "https://image.tmdb.org/t/p/original";
+const imagePrefix = "https://image.tmdb.org/t/p/original/";
 
 const MovieItem = (props) => {
   const dispatch = useDispatch();
@@ -16,12 +16,12 @@ const MovieItem = (props) => {
   const [isFavourite, setIsFavourite] = useState(false);
   const [isWatchList, setIsWatchList] = useState(false);
 
-  const { id, favourited, watchLater } = props;
+  const { id, title, posterPath, favourited, watchLater } = props;
 
   const payload = {
-    id: props.id,
-    title: props.title,
-    posterPath: props.posterPath,
+    id,
+    title,
+    posterPath,
   };
 
   useEffect(() => {
@@ -82,13 +82,13 @@ const MovieItem = (props) => {
         <img
           className={classes.poster}
           // src={`https://image.tmdb.org/t/p/original${props.posterPath}`}
-          src={`${imagePrefix}${props.posterPath}`}
+          src={`${imagePrefix}${posterPath}`}
           alt="poster"
         />
       </div>
 
-      <NavLink className={classes.link} to={`/movie/${props.id}`}>
-        <div className={classes.description}>{props.title}</div>
+      <NavLink className={classes.link} to={`/movie/${id}`}>
+        <div className={classes.description}>{title}</div>
       </NavLink>
     </div>
   );
