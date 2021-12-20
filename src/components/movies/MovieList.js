@@ -5,8 +5,10 @@ import GridContainer from "../layout/Grid/GridContainer";
 
 const MovieList = (props) => {
   const movies = props.results;
+  const loading = props.loading;
   const favouriteList = useSelector((state) => state.favourite.list);
   const watchLaterList = useSelector((state) => state.watchLater.list);
+  loading(false);
 
   return (
     <GridContainer>
