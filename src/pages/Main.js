@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import useHttp from "../hooks/useHttp";
 import { getAllPopular } from "../lib/api";
 
-import Loader from "../components/UI/Loader";
+import Loader from "../components/layout/Loader/Loader";
 import MovieList from "../components/movies/MovieList";
 
 const Main = () => {
