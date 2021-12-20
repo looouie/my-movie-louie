@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useHttp from "../hooks/useHttp";
 import { getAllPopular } from "../lib/api";
@@ -8,6 +8,11 @@ import MovieList from "../components/movies/MovieList";
 
 const Main = () => {
   const { sendRequest, data, error, status } = useHttp(getAllPopular);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const LoadingHandler = (value) => {
+    setIsLoading(value);
+  };
 
   useEffect(() => {
     sendRequest();
@@ -16,8 +21,10 @@ const Main = () => {
   return (
     <Fragment>
       <h1>Popular Movie</h1>
-      {status === "pending" && <Loader />}
-      {!error && status === "completed" && <MovieList results={data.results} />}
+      {isLoading && <Loader />}
+      {!error && status === "completed" && (
+        <MovieList results={data.results} loading={LoadingHandler} />
+      )}
     </Fragment>
   );
 };
