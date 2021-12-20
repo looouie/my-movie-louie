@@ -1,4 +1,3 @@
-import { Fragment } from "react/cjs/react.production.min";
 import { useSelector, useDispatch } from "react-redux";
 import { favouriteActions } from "../store/favourite-slice";
 
@@ -21,7 +20,7 @@ const Favourite = () => {
   const subHeader = total > 0 ? `${total} movies saved` : "No movie saved";
 
   return (
-    <Fragment>
+    <>
       <h1>Favourite</h1>
       <div className={classes.flexContainer}>
         <h2 className={classes.counter}>{subHeader}</h2>
@@ -42,7 +41,7 @@ const Favourite = () => {
           );
         })}
       </GridContainer>
-    </Fragment>
+    </>
   );
 };
 
