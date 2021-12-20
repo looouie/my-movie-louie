@@ -1,5 +1,16 @@
+.contianer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10rem 0;
+}
 .lds_dual_ring {
-  display: inline-block;
   width: 80px;
   height: 80px;
 }
@@ -22,3 +33,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* @media (min-width: 40rem) {
+  .lds_dual_ring {
+  }
+} */
