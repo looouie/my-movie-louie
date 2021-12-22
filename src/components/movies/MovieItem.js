@@ -16,13 +16,24 @@ const MovieItem = (props) => {
   const [isFavourite, setIsFavourite] = useState(false);
   const [isWatchList, setIsWatchList] = useState(false);
 
-  const { id, title, posterPath, favourited, watchLater } = props;
+  const {
+    id,
+    title,
+    posterPath,
+    favourited,
+    watchLater,
+    onLoad = () => {},
+  } = props;
 
   const payload = {
     id,
     title,
     posterPath,
   };
+
+  useEffect(() => {
+    onLoad();
+  }, []);
 
   useEffect(() => {
     if (favourited) {
