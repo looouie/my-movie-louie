@@ -9,8 +9,9 @@ import MovieItem from "../components/movies/MovieItem";
 import Button from "../components/layout/Button/Button";
 
 const WatchLater = () => {
-  const list = useSelector((state) => state.watchLater.list);
+  const watchLaterList = useSelector((state) => state.watchLater.list);
   const total = useSelector((state) => state.watchLater.totalMovies);
+  const favouriteList = useSelector((state) => state.favourite.list);
 
   const dispatch = useDispatch();
 
@@ -34,7 +35,9 @@ const WatchLater = () => {
         </Button>
       </div>
       <GridContainer>
-        {list.map((movie) => {
+        {watchLaterList.map((movie) => {
+          const favoruited = favouriteList.find((x) => x.id === movie.id);
+
           return (
             <MovieItem
               key={movie.id}
@@ -42,6 +45,7 @@ const WatchLater = () => {
               title={movie.title}
               posterPath={movie.posterPath}
               watchLater={true}
+              favourited={favoruited ? true : false}
             />
           );
         })}
