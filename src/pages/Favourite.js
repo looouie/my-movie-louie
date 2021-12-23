@@ -25,7 +25,11 @@ const Favourite = () => {
       <h1>Favourite</h1>
       <div className={classes.flexContainer}>
         <h2 className={classes.counter}>{subHeader}</h2>
-        <Button className={classes.removeAllBtn} onClick={removeAllHandler}>
+        <Button
+          className={total === 0 ? ".disable" : ""}
+          onClick={removeAllHandler}
+          disable={total === 0 ? true : false}
+        >
           Remove All
         </Button>
       </div>
