@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { favouriteActions } from "../store/favourite-slice";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
+import Loader from "../components/layout/Loader/Loader";
 
 import classes from "./MovieDetail.module.css";
 
@@ -18,6 +19,11 @@ const MovieDetail = () => {
 
   let isValid = false;
   let payload = {};
+
+  const [loading, setLoading] = useState(true);
+  const imageIsLoaded = () => {
+    setLoading(false);
+  };
 
   const [isFavourite, setIsFavourite] = useState();
   const [isWatchLater, setIsWatchLater] = useState();
@@ -86,14 +92,23 @@ const MovieDetail = () => {
     <Fragment>
       <div>
         <h1>Movie Detail</h1>
-        {isValid && [
-          <h2>{data.title}</h2>,
-          <img
-            alt="movie_poster"
-            className={classes.backdrop}
-            src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
-          />,
-        ]}
+        {isValid && <h2>{data.title}</h2>}
+        {loading && <Loader />}
+
+        <div
+          className={classes.backdrop_container}
+          style={{ display: loading ? "none" : "block" }}
+        >
+          {isValid && (
+            <img
+              alt="movie_poster"
+              className={classes.backdrop}
+              src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
+              onLoad={imageIsLoaded}
+            />
+          )}
+        </div>
+
         <div className={classes.add_to_list}>
           <div className={classes.add_favourite} onClick={toggleFavorite}>
             {isFavourite ? <AiIcons.AiFillHeart /> : <AiIcons.AiOutlineHeart />}
