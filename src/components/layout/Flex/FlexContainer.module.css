@@ -1,0 +1,11 @@
+.flex {
+  display: flex;
+  text-align: start;
+  margin: 0 1rem;
+}
+
+@media (min-width: 40rem) {
+  .flex {
+    margin: 0 1rem;
+  }
+}

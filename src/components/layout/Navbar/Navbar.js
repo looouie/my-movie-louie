@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+import { SidebarData } from "../SidebarData";
 import { IconContext } from "react-icons";
-import { uiActions } from "../../store/ui-slice";
+import { uiActions } from "../../../store/ui-slice";
 
 import * as FaIcons from "react-icons/fa";
 import * as GrIcons from "react-icons/gr";
@@ -14,18 +14,15 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const showSidebar = useSelector((state) => state.ui.sidebarIsVisible);
-  // useState method
-  // const [sidebar, setSidebar] = useState(false);
-  // const toggleSideBar = () => setSidebar(!sidebar);
 
-  //redux store method
+  //redux store
   const toggle = () => {
     dispatch(uiActions.toggleSidebar());
   };
 
   return (
     <IconContext.Provider value={{ color: "#463f3a" }}>
-      <div className={classes.navbar}>
+      <div className={`${classes.navbar} ${classes.sticky}`}>
         <Link to="#" className={classes.menu_icon}>
           <FaIcons.FaBars onClick={toggle} />
         </Link>
@@ -49,7 +46,7 @@ const Navbar = () => {
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={classes[item.cName]}>
-                <Link to={item.path}>
+                <Link to={item.path} onClick={toggle}>
                   {item.icon}
                   <span>{item.title}</span>
                 </Link>

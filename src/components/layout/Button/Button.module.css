@@ -1,0 +1,41 @@
+.button {
+  font: inherit;
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center;
+  border: 1px solid #8dcfa3;
+  background: #8dcfa3;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.1rem; /* same as h2 */
+  border-radius: 10px;
+  height: 2rem;
+}
+
+.button:hover,
+.button:active {
+  background: #889c8f;
+  border-color: #889c8f;
+}
+
+.button:focus {
+  outline: none;
+}
+
+button:disabled,
+button:focus:disabled,
+button:hover:disabled,
+button:active:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+@media (min-width: 40rem) {
+  .button {
+    font-size: 1.15rem;
+    height: 3rem;
+  }
+}

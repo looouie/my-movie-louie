@@ -9,14 +9,21 @@ const favouriteSlice = createSlice({
   reducers: {
     addToFavouriteList(state, action) {
       const newMovie = action.payload;
-      state.list.push({ id: newMovie });
+      state.list.push({
+        id: newMovie.id,
+        title: newMovie.title,
+        posterPath: newMovie.posterPath,
+      });
       state.totalMovies++;
     },
     removeFavouriteFromList(state, action) {
-      const idTobeRemoved = action.payload;
-      state.list = state.list.filter((item) => item.id !== idTobeRemoved);
-
+      const itemTobeRemoved = action.payload;
+      state.list = state.list.filter((item) => item.id !== itemTobeRemoved);
       state.totalMovies--;
+    },
+    removeAllFavourite(state) {
+      state.list = [];
+      state.totalMovies = 0;
     },
   },
 });

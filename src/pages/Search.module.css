@@ -1,5 +1,6 @@
 .form {
   margin: 0;
+  /* width: 8rem; */
   max-width: 100%;
   line-height: 1.5em;
 }
@@ -10,18 +11,24 @@
   font: inherit;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 50%;
+  width: 55%;
   padding: 10px 10px;
 }
 
 .form .submit {
   border-radius: 5px;
-  width: 10%;
+  width: 25%;
 }
 
 .form .submit:hover,
 .form .submit:active {
   background-color: #beeedb;
+}
+
+.noKeyword {
+  font-weight: 500;
+  color: crimson;
+  padding: 10px; /* same as Layout h1 tag*/
 }
 
 .noResult {
@@ -49,4 +56,12 @@
 
 .result li a:hover {
   color: #2b916a;
+}
+
+.poster {
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 3px;
+  position: relative;
 }

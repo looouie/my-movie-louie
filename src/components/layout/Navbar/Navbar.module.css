@@ -5,7 +5,15 @@
   align-items: center;
   vertical-align: middle;
   height: 3rem;
+  z-index: 1;
+  top: 0;
+  opacity: 0.95;
 }
+
+.sticky {
+  position: sticky;
+}
+
 .menu_icon,
 .home_icon,
 .header {
@@ -49,7 +57,7 @@
 
 .nav_menu.active {
   left: 0;
-  transition: 350ms;
+  transition: 350ms ease-in-out;
 }
 
 .nav_text {
