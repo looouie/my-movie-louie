@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
-import Favourite from "./pages/Favourite";
+import Favourite from "./pages/Favourite/Favourite";
 import Search from "./pages/Search";
 import WatchLater from "./pages/WatchLater";
 import Main from "./pages/Main";

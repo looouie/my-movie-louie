@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
-import { favouriteActions } from "../store/favourite-slice";
+import { favouriteActions } from "../../store/favourite-slice";
 
 import classes from "./Favourite.module.css";
 
-import GridContainer from "../components/layout/Grid/GridContainer";
-import MovieItem from "../components/movies/MovieItem";
-import Button from "../components/layout/Button/Button";
+import GridContainer from "../../components/layout/Grid/GridContainer";
+import MovieItem from "../../components/movies/MovieItem";
+import Button from "../../components/layout/Button/Button";
 
 const Favourite = () => {
   const favouriteList = useSelector((state) => state.favourite.list);
