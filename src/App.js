@@ -4,7 +4,7 @@ import Layout from "./components/layout/Layout";
 import Favourite from "./pages/Favourite/Favourite";
 import Search from "./pages/Search/Search";
 import WatchLater from "./pages/WatchLater/WatchLater";
-import Main from "./pages/Main";
+import Main from "./pages/Main/Main";
 import MovieDetail from "./pages/MovieDetail/MovieDetail";
 
 import "./App.css";
