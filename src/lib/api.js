@@ -27,9 +27,9 @@ export async function getMovieDetail(movieId) {
   return data;
 }
 
-export async function searchByKeyword(keyword) {
+export async function searchMovies(keyword) {
   const response = await fetch(
-    `${domain}search/keyword?api_key=${APIKey}&query=${keyword}`
+    `${domain}search/movie?api_key=${APIKey}&query=${keyword}`
   );
   const data = await response.json();
 
