@@ -1,16 +1,16 @@
 import { useEffect, Fragment, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { favouriteActions } from "../store/favourite-slice";
+import { favouriteActions } from "../../store/favourite-slice";
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
-import Loader from "../components/layout/Loader/Loader";
+import Loader from "../../components/layout/Loader/Loader";
 
 import classes from "./MovieDetail.module.css";
 
-import { getMovieDetail } from "../lib/api";
-import useHttp from "../hooks/useHttp";
-import { watchLaterActions } from "../store/watchLater-slice";
+import { getMovieDetail } from "../../lib/api";
+import useHttp from "../../hooks/useHttp";
+import { watchLaterActions } from "../../store/watchLater-slice";
 
 const MovieDetail = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import Favourite from "./pages/Favourite/Favourite";
 import Search from "./pages/Search";
 import WatchLater from "./pages/WatchLater";
 import Main from "./pages/Main";
-import MovieDetail from "./pages/MovieDetail";
+import MovieDetail from "./pages/MovieDetail/MovieDetail";
 
 import "./App.css";
 
