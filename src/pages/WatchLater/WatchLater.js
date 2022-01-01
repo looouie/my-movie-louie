@@ -1,12 +1,12 @@
 // import Loader from "../components/UI/Loader";
 import { useSelector, useDispatch } from "react-redux";
-import { watchLaterActions } from "../store/watchLater-slice";
+import { watchLaterActions } from "../../store/watchLater-slice";
 
 import classes from "./WatchLater.module.css";
 
-import GridContainer from "../components/layout/Grid/GridContainer";
-import MovieItem from "../components/movies/MovieItem";
-import Button from "../components/layout/Button/Button";
+import GridContainer from "../../components/layout/Grid/GridContainer";
+import MovieItem from "../../components/movies/MovieItem";
+import Button from "../../components/layout/Button/Button";
 
 const WatchLater = () => {
   const watchLaterList = useSelector((state) => state.watchLater.list);

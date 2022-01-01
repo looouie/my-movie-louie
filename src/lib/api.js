@@ -3,39 +3,49 @@ const domain = `https://api.themoviedb.org/3/`;
 const language = "en-US";
 
 export async function getAllPopular() {
-  const response = await fetch(
-    `${domain}movie/popular?api_key=${APIKey}&language=${language}&page=1`
-  );
-  const data = await response.json(); // result
+  try {
+    const response = await fetch(
+      `${domain}movie/popular?api_key=${APIKey}&language=${language}&page=1`
+    );
 
-  if (!response.ok) {
-    throw new Error(data.message || "could not fetch all popular movies");
+    if (!response.ok) {
+      throw new Error("could not fetch all popular");
+    }
+    const data = await response.json(); // result
+
+    return data;
+  } catch (error) {
+    return error.message; // self defined message from the Error Object
   }
-  return data;
 }
 
 export async function getMovieDetail(movieId) {
-  const response = await fetch(
-    `${domain}movie/${movieId}?api_key=${APIKey}&language=${language}`
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `${domain}movie/${movieId}?api_key=${APIKey}&language=${language}`
+    );
 
-  if (!response.ok) {
-    throw new Error(data.message || "could not fetch movie detail");
+    if (!response.ok) {
+      throw new Error("could not fetch movie detail");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error.message;
   }
-
-  return data;
 }
 
-export async function searchByKeyword(keyword) {
-  const response = await fetch(
-    `${domain}search/keyword?api_key=${APIKey}&query=${keyword}`
-  );
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "could not find related movie");
+export async function searchMovies(keyword) {
+  try {
+    const response = await fetch(
+      `${domain}search/movie?api_key=${APIKey}&query=${keyword}`
+    );
+    if (!response.ok) {
+      throw new Error("could not find related movie");
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error.message;
   }
-
-  return data;
 }

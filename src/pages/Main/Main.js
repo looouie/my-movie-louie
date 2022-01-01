@@ -1,11 +1,11 @@
 import { Fragment, useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
-import useHttp from "../hooks/useHttp";
-import { getAllPopular } from "../lib/api";
+import useHttp from "../../hooks/useHttp";
+import { getAllPopular } from "../../lib/api";
 
-import Loader from "../components/layout/Loader/Loader";
-import MovieItem from "../components/movies/MovieItem";
-import GridContainer from "../components/layout/Grid/GridContainer";
+import Loader from "../../components/layout/Loader/Loader";
+import MovieItem from "../../components/movies/MovieItem";
+import GridContainer from "../../components/layout/Grid/GridContainer";
 
 const Main = () => {
   const { sendRequest, data, error, status } = useHttp(getAllPopular);

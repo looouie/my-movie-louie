@@ -1,14 +1,14 @@
 import { useRef, Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import useHttp from "../hooks/useHttp";
-import { searchByKeyword } from "../lib/api";
+import useHttp from "../../hooks/useHttp";
+import { searchMovies } from "../../lib/api";
 
 import classes from "./Search.module.css";
-import FlexContainer from "../components/layout/Flex/FlexContainer";
+import FlexContainer from "../../components/layout/Flex/FlexContainer";
 
 const Search = () => {
-  const { sendRequest, data, status, error } = useHttp(searchByKeyword);
+  const { sendRequest, data, status, error } = useHttp(searchMovies);
   const inputRef = useRef(null);
   const [noKeyword, setNoKeyword] = useState(false);
   const [searchResult, setSearchResult] = useState(false);
@@ -64,7 +64,7 @@ const Search = () => {
                 return (
                   <li key={result.id}>
                     <Link key={result.id} to={`/movie/${result.id}`}>
-                      {result.name}
+                      {result.title}
                     </Link>
                   </li>
                 );
