@@ -1,5 +1,5 @@
 ## A simple static movie application using Javascript and React 
-* The APP: https://my-movie-louie.web.app/main
+* The APP: https://my-movie-louie.web.app/
 * API used: https://developers.themoviedb.org/
 
 ## Functions including:
